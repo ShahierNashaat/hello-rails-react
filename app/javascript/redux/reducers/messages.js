@@ -1,6 +1,4 @@
-const initState = {
-  message: '',
-};
+const initState = '';
 
 const messageReducer = (state = initState, action) => {
   switch (action.type) {
@@ -10,8 +8,9 @@ const messageReducer = (state = initState, action) => {
       return state;
   }
 };
+
 export const fetchmessage = () => async (dispatch) => {
-  await fetch('/api/messages')
+  await fetch('http://127.0.0.1:3000/api/messages')
     .then((response) => response.json())
     .then((data) => {
       dispatch({ type: 'COMPLETE_MESSAGE', payload: data });

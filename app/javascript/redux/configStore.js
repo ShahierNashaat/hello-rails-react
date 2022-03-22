@@ -10,5 +10,4 @@ const store = createStore(
   applyMiddleware(thunk),
 );
 
-store.dispatch(fetchmessage());
 export default store;

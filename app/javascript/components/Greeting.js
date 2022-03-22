@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchmessage } from '../redux/message/api';
+import { fetchmessage } from './../redux/reducers/messages';
 
 const Greeting = () => {
-  const message = useSelector((state) => state.messageReducer.message);
-  // console.log('message => ', message);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchmessage());
   }, []);
+
+  const message = useSelector((state) => state.messageReducer);
+  console.log('message => ', message);
 
   return (
     <div>
